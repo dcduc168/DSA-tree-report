@@ -16,6 +16,7 @@
   - Right Left Case
 
 - Code cài đặt được đính kèm ở file `AVLTree.cpp`
+- Kết quả đính kèm ở file `resultAVL.txt`
 - Với 10 test case gồm $1000000$ số nguyên khác nhau thì ta thu được kết quả chiều cao của cây ở $10$ bộ test là $20$. Vì chiều cao của cây luôn là $\log_2(n)$ nên với $1000000$ số ta sẽ luôn có được chiều cao của cây là $\log_2(1000000)\approx20$
 
 ## Red Black Tree
@@ -31,6 +32,7 @@
 > Vậy nên chiều cao của cây đỏ đen luôn nhỏ hơn $2\log_2(n)$ &rarr; Trong cây đỏ đen luôn tồn tại ít nhất $n/2$ node đen.
 
 - Code cài đặt được đính kèm ở file `RBTree.cpp`
+- Kết quả đính kèm ở file `resultRB.txt`
 - Với 10 test case gồm $1000000$ số nguyên khác nhau thì ta thu được kết quả chiều cao của cây ở $10$ bộ test là $20$. Vì chiều cao của cây luôn là $2\log_2(n)$ nên với $1000000$ số ta sẽ luôn có được chiều cao của cây là $2\log_2(n+1)\approx38$
 
 ## Tổng kết
