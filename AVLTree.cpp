@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define RH 1
-#define EH 0
-#define LH -1
-
 class Node
 {
 public:
@@ -80,32 +76,26 @@ Node *insertNode(Node *node, int data)
     else if (data > node->data)
         node->right = insertNode(node->right, data);
 
-    /*----------------------------------------------------------------------------------*/
-
     node->height = 1 + max(height(node->left), height(node->right));
 
     int balance = getBalanceFactor(node);
 
-    // Cay con trai lech trai
-    if (balance > RH && data < node->left->data)
+    if (balance > 1 && data < node->left->data)
         return rightRotate(node);
 
-    // Cay con trai lech phai
-    if (balance > RH && data > node->left->data)
+    if (balance > 1 && data > node->left->data)
     {
         node->left = leftRotate(node->left);
         return rightRotate(node);
     }
 
-    // Cay con phai lech trai
-    if (balance < LH && data < node->right->data)
+    if (balance < -1 && data < node->right->data)
     {
         node->right = rightRotate(node->right);
         return leftRotate(node);
     }
 
-    // Cay con phai lech phai
-    if (balance < LH && data > node->right->data)
+    if (balance < -1 && data > node->right->data)
         return leftRotate(node);
 
     return node;
@@ -121,68 +111,59 @@ Node *deleteNode(Node *root, int data)
         root->right = deleteNode(root->right, data);
     else if (data < root->data)
         root->left = deleteNode(root->left, data);
-    else // Nếu data có giá trị bằng với root->data thì đây chính là Node cần xóa
+    else
     {
-        // Trường hợp 0 con hoặc 1 con
+
         if (root->left == NULL || root->right == NULL)
         {
-            // Sử dụng Node temp để kiểm tra
+
             Node *temp = root->left;
             if (root->right != NULL)
                 temp = root->right;
 
-            if (temp == NULL) // TH: 0 con - No child case
+            if (temp == NULL)
             {
                 temp = root;
                 root = NULL;
                 delete temp;
             }
-            else // TH: 1 con - One child case
+            else
             {
-                // Gán tất cả các giá trị (bao gồm left, right, height) của temp vào root
+
                 *root = *temp;
                 delete temp;
             }
         }
-        else // Trường hợp 2 con - Two child case
+        else
         {
-            // Tìm Node lớn nhất bên trái (nhỏ nhất bên phải)
+
             Node *temp = maxValueNode(root->left);
 
-            // Đưa data của temp vào root
             root->data = temp->data;
 
-            // Xóa temp như 2 TH trên - Delete the inorder successor
             root->right = deleteNode(root->right, temp->data);
         }
     }
 
-    // Nếu không còn gì thì trả về luôn !!
     if (root == NULL)
         return root;
 
-    // 2. CẬP NHẬT CHIỀU CAO - UPDATE HEIGHT OF THE CURRENT NODE
     root->height = 1 + max(height(root->left), height(root->right));
 
-    // 3. CÂN BẰNG CÂY - GET THE BALANCE FACTOR
     int valBalance = getBalanceFactor(root);
 
-    // Case 1: Left left - Trái trái
     if (valBalance > 1 && getBalanceFactor(root->left) >= 0)
         return rightRotate(root);
 
-    // Case 2: Right right - Phải phải
     if (valBalance < -1 && getBalanceFactor(root->right) <= 0)
         return leftRotate(root);
 
-    // Case 3: Left right - Trái phải
     if (valBalance > 1 && getBalanceFactor(root->left) < 0)
     {
         root->left = leftRotate(root->left);
         return rightRotate(root);
     }
 
-    // Case 4: Right left - Phải trái
     if (valBalance < -1 && getBalanceFactor(root->right) > 0)
     {
         root->right = rightRotate(root->right);
@@ -211,7 +192,7 @@ int main()
 
     for (int i = 1; i <= 10; i++)
     {
-        string fileInp = "./data/data_" + to_string(i) + ".txt";
+        string fileInp = "data_" + to_string(i) + ".txt";
         fi.open(fileInp);
         if (fi.is_open())
             for (int i = 0; i < 1000000; i++)
@@ -220,8 +201,7 @@ int main()
                 fi >> data;
                 root = insertNode(root, data);
             }
-        // preOrder(root);
-        // cout << '\n';
+
         fo << height(root) << '\n';
     }
 
