@@ -49,3 +49,4 @@
   |8 |20 |38 |
   |9 |20 |38 |
   |10 |20 |38 |
+![image](https://github.com/m3r1t168/IT003_Tree/assets/70695937/462a64f6-ea5e-439f-95a8-a83320ae739e)
