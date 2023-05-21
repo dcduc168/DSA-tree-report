@@ -192,7 +192,7 @@ int main()
 
     for (int i = 1; i <= 10; i++)
     {
-        string fileInp = "data_" + to_string(i) + ".txt";
+        string fileInp = "./data/data_" + to_string(i) + ".txt";
         fi.open(fileInp);
         if (fi.is_open())
             for (int i = 0; i < 1000000; i++)
