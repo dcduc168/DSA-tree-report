@@ -29,6 +29,7 @@
 - Đa số các thao tác cơ bản của **BST** đều có độ phức tạp là $O(h)$ với h là chiều cao của **BST**. Với các trường hợp cây bị lệch, độ phức tạp xấu nhất sẽ là $O(n)$. Và cây đỏ đen đã khắc phục được điều đó bằng cách tự cân bằng lại cây sau mỗi thao tác **chèn**, **xoá**. Còn với cây đỏ đen thì các node được phân phối đều ở các nhánh.
 
 > Vậy nên chiều cao của cây đỏ đen luôn nhỏ hơn $2\log_2(n+1)$
+> &rarr; Trong cây đỏ đen luôn tồn tại ít nhất $n/2$ node đen.
 
 - Code cài đặt được đính kèm ở file `RBTree.cpp`
 - Với 10 test case gồm $1000000$ số nguyên khác nhau thì ta thu được kết quả chiều cao của cây ở $10$ bộ test là $20$. Vì chiều cao của cây luôn là $2\log_2(n+1)$ nên với $1000000$ số ta sẽ luôn có được chiều cao của cây là $2\log_2(n+1)\approx38$
