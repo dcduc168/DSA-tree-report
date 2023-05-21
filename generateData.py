@@ -36,6 +36,6 @@ num_datasets = 10
 dataset_size = 1000000
 
 for i, dataset in enumerate(generate_dataset(num_datasets, dataset_size)):
-    output_file = f"data_{i+1}.txt"
+    output_file = f"./data/data_{i+1}.txt"
     write_dataset_to_file(output_file, dataset)
     print("Dữ liệu đã được ghi vào file", output_file)
