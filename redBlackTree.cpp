@@ -327,7 +327,7 @@ int main()
     for (int t = 1; t <= 10; t++)
     {
         RedBlackTree RBTree;
-        string fileInp = "data_" + to_string(t) + ".txt";
+        string fileInp = "./data/data_" + to_string(t) + ".txt";
         fi.open(fileInp);
         if (fi.is_open())
             for (int i = 0; i < 1000000; i++)
