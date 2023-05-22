@@ -1,8 +1,8 @@
 # IT003_Tree
 
-> Họ và tên: Đinh Công Đức
-> MSSV: 22520262
-> Lớp: ATTN2022
+> Họ và tên: Đinh Công Đức <br/>
+> MSSV: 22520262 <br/>
+> Lớp: ATTN2022 <br/>
 
 ## AVL Tree
 
