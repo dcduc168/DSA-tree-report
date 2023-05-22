@@ -1,5 +1,9 @@
 # IT003_Tree
 
+> Họ và tên: Đinh Công Đức
+> MSSV: 22520262
+> Lớp: ATTN2022
+
 ## AVL Tree
 
 - Là cây tìm kiếm nhị phân (**BST**) tự cân bằng sao cho chiều cao của cây con trái và phải của tất cả các node không được vượt quá 1.
